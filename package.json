@@ -1,0 +1,16 @@
+{
+  "name": "LiquidWrapper",
+  "version": "0.0.1",
+  "description": "Component that allows rendering liquid templates in React components",
+  "homepage": "https://github.com/praesensco/liquid-wrapper",
+  "license": "MIT",
+  "keywords": "liquid,react,shopify",
+  "author": "Adam Widmanski <adam@praesens.co> (https://praesens.co)",
+  "repository": "praesensco/liquid-wrapper",
+  "dependencies": {
+    "html-react-parser": "^0.10.3",
+    "liquidjs": "^9.11.10",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1"
+  }
+}
