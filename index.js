@@ -11,6 +11,12 @@ const getEngine = (root = '/snippets') => {
       extname: '.liquid',
       root,
     });
+
+    // Shopify handle filter
+    engine.registerFilter('handle', v => v
+      .toLowerCase()
+      .replace(/[^a-z0-9-]/g, '-')
+      .replace(/-+/g, '-'));
   }
 
   return engine;
