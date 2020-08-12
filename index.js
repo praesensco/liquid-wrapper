@@ -12,7 +12,17 @@ const getEngine = (root = '/snippets') => {
       root,
     });
 
-    // Shopify handle filter
+    // reginster Shopify tags and filters
+    engine.registerTag('form', {
+      parse: () => {},
+      render: () => '<form>',
+    });
+    
+    engine.registerTag('endform', {
+      parse: () => {},
+      render: () => '</form>',
+    });
+
     engine.registerFilter('handle', v => v
       .toLowerCase()
       .replace(/[^a-z0-9-]/g, '-')
