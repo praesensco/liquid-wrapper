@@ -1,6 +1,6 @@
 {
   "name": "LiquidWrapper",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Component that allows rendering liquid templates in React components",
   "homepage": "https://github.com/praesensco/liquid-wrapper",
   "license": "MIT",
