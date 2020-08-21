@@ -27,6 +27,15 @@ const getEngine = (root = '/snippets') => {
       .toLowerCase()
       .replace(/[^a-z0-9-]/g, '-')
       .replace(/-+/g, '-'));
+
+    engine.registerFilter('format_address', address => `
+      <span>
+        ${address.name}<br />
+        ${address.address1}<br />
+        ${address.address2}<br />
+        ${address.city}, ${address.province_code} ${address.zip}
+      </span>
+    `);
   }
 
   return engine;
