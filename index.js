@@ -1,9 +1,13 @@
 import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { Liquid } from 'liquidjs';
 
 let engine;
+
+const handleize = text => text.toLowerCase()
+  .replace(/[^a-z0-9-]/g, '-')
+  .replace(/-+/g, '-');
 
 const getEngine = (root = '/snippets') => {
   if (!engine) {
@@ -23,10 +27,9 @@ const getEngine = (root = '/snippets') => {
       render: () => '</form>',
     });
 
-    engine.registerFilter('handle', v => v
-      .toLowerCase()
-      .replace(/[^a-z0-9-]/g, '-')
-      .replace(/-+/g, '-'));
+    engine.registerFilter('handle', handleize)
+
+    engine.registerFilter('handleize', handleize);
 
     engine.registerFilter('format_address', address => `
       <span>
@@ -36,6 +39,18 @@ const getEngine = (root = '/snippets') => {
         ${address.city}, ${address.province_code} ${address.zip}
       </span>
     `);
+
+    engine.registerFilter('image_url', (image) => {
+      if (typeof image === 'string') {
+        return image
+      }
+      return image && image.src || ''
+    });
+
+    engine.registerFilter(
+      'money_without_trailing_zeros',
+      v => `$${(v * 0.01).toFixed(2).replace('.00', '')}`,
+    );
   }
 
   return engine;
