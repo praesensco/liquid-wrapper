@@ -9,7 +9,7 @@
   "repository": "praesensco/liquid-wrapper",
   "dependencies": {
     "html-react-parser": "^0.10.3",
-    "liquidjs": "^9.11.10",
+    "liquidjs": "^10.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1"
   }
